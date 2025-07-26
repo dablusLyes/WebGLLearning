@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
+  "outDir": "./public",           /* Specify an output folder for all emitted files. */
+    "rootDir": "./src",             /* Specify the root folder within your source files. */
+    // ...existing code...
 
     /* Projects */
     // "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
