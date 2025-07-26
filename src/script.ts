@@ -111,14 +111,19 @@ let program = createProgram(gl, vertexShader, fragmentShader);
 
 let positionAttributeLocation = gl.getAttribLocation(program, "vertexPosition");
 let positionBuffer: WebGLBuffer = gl.createBuffer();
+let indexBuffer: WebGLBuffer = gl.createBuffer();
 
+const indicesArray = [
+	0, 1, 2,
+	2, 1, 3
+]
 
-
-function drawTriangle(vertexArray): void {
+function drawTriangle(vertexArray, indices): void {
 	const ObjectVertecesCpuBuffer = new Float32Array(vertexArray);
-	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
+	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer)
 	gl.bufferData(gl.ARRAY_BUFFER, ObjectVertecesCpuBuffer, gl.STATIC_DRAW);
-	let vao = gl.createVertexArray();
+
+
 	const stride = 5 * Float32Array.BYTES_PER_ELEMENT;
 	const vertexPositionLocation = gl.getAttribLocation(
 		program,
